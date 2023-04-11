@@ -6,10 +6,14 @@ import './App.css';
 
 function App() {
     const [todos, setTodos] = useState([]);
+
+    const addTodoListener = (text) => {
+        setTodos([...todos, text]);
+    };
     return (
         <div className="app">
             <h1>Todo App</h1>
-            <TodoForm />
+            <TodoForm addTodo={addTodoListener} />
             <TodoList todos={todos} />
         </div>
     );
