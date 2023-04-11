@@ -1,4 +1,13 @@
+body {
+    background-color: lightskyblue;
+    color: white;
+}
+
 .app {
     text-align: center;
+}
+
+.todo-app {
+    margin: 30px auto;
 }
 
