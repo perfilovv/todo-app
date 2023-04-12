@@ -10,11 +10,16 @@ function App() {
     const addTodoListener = (text) => {
         setTodos([...todos, text]);
     };
+
+    const deleteTodoListener = (index) => {
+        setTodos(todos.filter((_, id) => id !== index));
+    };
+
     return (
         <div className="app">
             <h1>Todo App</h1>
             <TodoForm addTodo={addTodoListener} />
-            <TodoList todos={todos} />
+            <TodoList todos={todos} deleteTodo={deleteTodoListener} />
         </div>
     );
 }
