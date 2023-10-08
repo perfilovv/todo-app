@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import TodoForm from './components/TodoForm/TodoForm';
 import TodoList from './components/TodoList/TodoList';
 
@@ -8,11 +9,16 @@ function App() {
     const [todos, setTodos] = useState([]);
 
     const addTodoListener = (text) => {
-        setTodos([...todos, text]);
+        const newTodo = {
+            text,
+            isCompleted: false,
+            id: uuidv4(),
+        };
+        setTodos([...todos, newTodo]);
     };
 
-    const deleteTodoListener = (index) => {
-        setTodos(todos.filter((_, id) => id !== index));
+    const deleteTodoListener = (id) => {
+        setTodos(todos.filter((todo) => todo.id !== id));
     };
 
     return (

@@ -1,11 +1,11 @@
-import { MdOutlineTaskAlt } from 'react-icons/md';
+import { RiTodoLine } from 'react-icons/ri';
 import styles from './Todo.module.css';
 
-const Todo = ({ todo, index, deleteTodo }) => {
+const Todo = ({ todo, deleteTodo }) => {
     return (
-        <div className={styles.todo} onDoubleClick={() => deleteTodo(index)}>
-            <MdOutlineTaskAlt className={styles.todoIcon} />
-            <div className={styles.todoText}>{todo}</div>
+        <div className={styles.todo} onDoubleClick={() => deleteTodo(todo.id)}>
+            <RiTodoLine className={styles.todoIcon} />
+            <div className={styles.todoText}>{todo.text}</div>
         </div>
     );
 };

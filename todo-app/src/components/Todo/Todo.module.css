@@ -11,6 +11,11 @@
     user-select: none;
 }
 
+.todo:hover {
+    transition: all 0.3s;
+    transform: scale(1.02);
+}
+
 .todoText {
     width: 100%;
     text-align: left;
