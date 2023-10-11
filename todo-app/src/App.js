@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import TodoForm from './components/TodoForm/TodoForm';
 import TodoList from './components/TodoList/TodoList';
+import TodosActions from './components/TodosActions/TodosActions';
 
 import './App.css';
 
@@ -35,6 +36,7 @@ function App() {
         <div className="app">
             <h1>Todo App</h1>
             <TodoForm addTodo={addTodoListener} />
+            <TodosActions />
             <TodoList
                 todos={todos}
                 deleteTodo={deleteTodoListener}
