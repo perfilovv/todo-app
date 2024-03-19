@@ -1,14 +1,27 @@
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import styles from './TodoForm.module.css';
 import Button from '../UI/Button';
+import { useDispatch } from 'react-redux';
+import { addTodo } from '../../redux/slices/todosSlice';
 
-const TodoForm = ({ addTodo }) => {
+const TodoForm = () => {
     const [text, setText] = useState('');
+    const dispatch = useDispatch();
+    const newTodo = {
+        text,
+        isCompleted: false,
+        id: uuidv4(),
+    };
+
     const onSubmitListener = (event) => {
         event.preventDefault();
-        addTodo(text);
-        setText('');
+
+        if (text) {
+            dispatch(addTodo(newTodo));
+            setText('');
+        }
     };
     return (
         <div className={styles.todoFormContainer}>
